@@ -8,7 +8,7 @@ import tornadofx.*
 class VictoryView: View() {
 
     var enterAction:()->Unit = { }
-    var player: String =  ""
+    val player: String by param()
 
     override val root = vbox{
         label("$player 胜利")
