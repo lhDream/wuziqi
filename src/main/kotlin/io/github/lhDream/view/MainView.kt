@@ -36,7 +36,12 @@ class MainView:View() {
             this.root.layoutY = 50.0
             action {
                 // 游戏结束触发动作
-                val victoryView = find<VictoryView>()
+                val player = if(it.color == this.blackPiece){
+                    "黑棋"
+                }else{
+                    "白棋"
+                }
+                val victoryView = find(VictoryView::class, mapOf(VictoryView::player to player))
                 victoryView.enterAction = {
                     // 重开处理逻辑
                     reset()

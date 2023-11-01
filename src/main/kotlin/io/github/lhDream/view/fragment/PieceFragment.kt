@@ -8,12 +8,23 @@ import javafx.scene.paint.Paint
 import javafx.scene.shape.ArcType
 import tornadofx.*
 
+/**
+ * 棋子
+ */
 class PieceFragment: Fragment() {
-
+    /**
+     * 棋子颜色
+     */
     val color: Paint by param()
 
+    /**
+     * 棋子大小
+     */
     val pieceSize = 40.0
 
+    /**
+     * 棋子样式
+     */
     override val root = anchorpane{
         addClass(piece)
         canvas {
@@ -25,8 +36,6 @@ class PieceFragment: Fragment() {
                 fillArc(1.0,1.0,pieceSize,pieceSize,0.0,360.0,ArcType.OPEN)
                 fill = color
                 fillArc(0.0,0.0,pieceSize,pieceSize,0.0,360.0,ArcType.OPEN)
-                fill  = c("red")
-                fillRect(50.0, 100.0, 100.0, 20.0)
             }
         }
     }

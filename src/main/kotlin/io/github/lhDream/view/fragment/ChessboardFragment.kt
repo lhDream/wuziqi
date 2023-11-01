@@ -31,7 +31,7 @@ class ChessboardFragment: Fragment() {
     val cellSize: Double by param()
 
 
-    var enterAction:()->Unit = { }
+    var enterAction:(PieceFragment)->Unit = { }
 
     private val gomokuController: GomokuController by inject()
 
@@ -122,7 +122,6 @@ class ChessboardFragment: Fragment() {
 
         setOnMouseClicked {
             if(!gomokuController.checkChessMoves(x,y)){
-                val c = PieceFragment::class
                 // 落子
                 add(PieceFragment::class, mapOf(PieceFragment::color to pieceColor)){
                     this.root.layoutX = layoutX - this.pieceSize / 2
@@ -130,7 +129,7 @@ class ChessboardFragment: Fragment() {
                     // 落子逻辑处理
                     val res = gomokuController.downPiece(x,y,this)
                     if(res){
-                        enterAction()
+                        enterAction(this)
                     }
                 }
                 // 标识下一子的颜色
@@ -143,7 +142,7 @@ class ChessboardFragment: Fragment() {
         }
     }
 
-    fun action(action: ()->Unit){
+    fun action(action: (PieceFragment)->Unit){
         this.enterAction = action
     }
 
