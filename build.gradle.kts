@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.github.lhDream"
-version = "1.0-SNAPSHOT"
+version = "1.0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -33,8 +33,8 @@ apply(plugin = "io.github.fvarrui.javapackager.plugin")
 
 tasks.register("wuziqi",PackageTask::class.java){
     mainClass = "io.github.lhDream.MainAppKt"
-    displayName = "wu zi qi"
-    appName = "io.github.lhDream.wuziqi"
+    displayName = "本地五子棋"
+    appName = "io.github.lhdream.wuziqi"
     isBundleJre = true
     isCustomizedJre = false
     isCopyDependencies = true
