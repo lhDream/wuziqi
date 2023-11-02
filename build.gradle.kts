@@ -42,7 +42,7 @@ tasks.register("wuziqi",PackageTask::class.java){
     platform = io.github.fvarrui.javapackager.model.Platform.auto
     vmArgs = listOf("-Xms256M")
     linuxConfig(null).apply {
-        pngFile = File("${project.rootDir}\\src\\main\\resources\\assets\\logo.png")
+        pngFile = File("${project.rootDir}/src/main/resources/assets/logo.png")
         isGenerateInstaller = true
         isGenerateDeb = true
         isGenerateAppImage = false
