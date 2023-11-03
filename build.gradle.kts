@@ -41,7 +41,7 @@ tasks.register("wuziqi",PackageTask::class.java){
     isGenerateInstaller = true
     assetsDir = File("${project.rootDir}/assets")
     platform = io.github.fvarrui.javapackager.model.Platform.auto
-    vmArgs = listOf("-Xms256M")
+    vmArgs = listOf("-Xms256M","-Xmx512M")
     linuxConfig(null).apply {
         installationPath = File("/opt/apps")
         isGenerateInstaller = true
@@ -56,7 +56,7 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "17"
+    kotlinOptions.jvmTarget = "1.8"
 }
 
 javafx{
