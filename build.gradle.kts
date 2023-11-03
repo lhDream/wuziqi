@@ -39,10 +39,11 @@ tasks.register("wuziqi",PackageTask::class.java){
     isCustomizedJre = false
     isCopyDependencies = true
     isGenerateInstaller = true
+    assetsDir = File("${project.rootDir}/assets")
     platform = io.github.fvarrui.javapackager.model.Platform.auto
     vmArgs = listOf("-Xms256M")
     linuxConfig(null).apply {
-        pngFile = File("${project.rootDir}/src/main/resources/assets/logo.png")
+        installationPath = File("/opt/apps")
         isGenerateInstaller = true
         isGenerateDeb = true
         isGenerateAppImage = false
@@ -55,7 +56,7 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = "17"
 }
 
 javafx{
