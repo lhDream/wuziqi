@@ -21,15 +21,29 @@ class GomokuController: Controller() {
      */
     val cellSize = 50.0
     /**
+     * 当前玩家
+     */
+    var player = Player.BLACK
+
+    /**
      * 已下棋子缓存
      */
     val pieceList = Array(rows) { Array<PieceFragment?>(columns) { null } }
 
     /**
+     * 第几手
+     */
+    var whichMoveNum = 0
+
+    /**
      * 落子
      */
     fun downPiece(x: Int,y: Int,piece: PieceFragment): Boolean{
-        pieceList[x][y] = piece
+        if(!this.checkChessMoves(x,y)){
+            pieceList[x][y] = piece
+            whichMoveNum++
+            player = if(player == Player.BLACK) Player.WHITE else Player.BLACK
+        }
         return check(x, y)
     }
 
@@ -44,6 +58,7 @@ class GomokuController: Controller() {
      * 重开棋局
      */
     fun reset(){
+        whichMoveNum = 0
         for (row in 0 until rows){
             for (column in 0 until columns){
                 pieceList[row][column] = null
@@ -158,4 +173,8 @@ class GomokuController: Controller() {
         return count >= 5
     }
 
+}
+
+enum class Player{
+    WHITE,BLACK
 }

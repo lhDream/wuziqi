@@ -30,7 +30,6 @@ class ChessboardFragment: Fragment() {
      */
     val cellSize: Double by param()
 
-
     var enterAction:(PieceFragment)->Unit = { }
 
     private val gomokuController: GomokuController by inject()
