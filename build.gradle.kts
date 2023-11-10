@@ -17,6 +17,7 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation("no.tornado:tornadofx:1.7.20")
+    implementation("com.alibaba.fastjson2:fastjson2:2.0.42")
 }
 
 buildscript{
