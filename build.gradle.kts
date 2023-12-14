@@ -32,7 +32,7 @@ buildscript{
 
 apply(plugin = "io.github.fvarrui.javapackager.plugin")
 
-tasks.register("wuziqi",PackageTask::class.java){
+tasks.register<PackageTask>("wuziqi"){
     mainClass = "io.github.lhDream.MainAppKt"
     displayName = "本地五子棋"
     appName = "io.github.lhdream.wuziqi"
