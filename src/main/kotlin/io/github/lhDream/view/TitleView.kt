@@ -1,5 +1,7 @@
 package io.github.lhDream.view
 
+import javafx.scene.layout.AnchorPane
+import javafx.scene.paint.Color
 import tornadofx.*
 import kotlin.system.exitProcess
 
@@ -9,27 +11,24 @@ import kotlin.system.exitProcess
 class TitleView: View() {
 
     override val root = anchorpane{
+        style {
+            backgroundColor = multi(Color.WHITE)
+        }
         prefWidth = 900.0
-        prefHeight = 600.0
-        imageview("images/title.png"){
-            fitWidth = 600.0
-            fitHeight = 400.0
+        prefHeight = 800.0
+        stackpane {
+            AnchorPane.setLeftAnchor(this,0.0)
+            AnchorPane.setRightAnchor(this,0.0)
+            imageview("/img/logo.png"){
+                fitWidth = 600.0
+                fitHeight = 400.0
+            }
         }
         vbox {
-            spacing = 20.0
-            layoutX = 150.0
+            spacing = 10.0
+            layoutX = 420.0
             layoutY = 500.0
-            button("单人模式") {
-                action {
-                    replaceWith<MainView>()
-                }
-            }
-            button("双人模式") {
-                action {
-                    replaceWith<MainView>()
-                }
-            }
-            button("本地联机") {
+            button("开始游戏") {
                 action {
                     replaceWith<MainView>()
                 }
