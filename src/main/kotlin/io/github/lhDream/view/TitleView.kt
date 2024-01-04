@@ -33,6 +33,9 @@ class TitleView: View() {
                     replaceWith<MainView>()
                 }
             }
+//            button("联机对战") {
+//
+//            }
             button("退出") {
                 action {
                     exitProcess(0)

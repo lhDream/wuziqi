@@ -100,7 +100,7 @@ fun findBestMove(board: Array<Array<Int>>,player: Int): Pair<Int, Int> {
 
     return bestMove
 }
-
+// 初始化位置价值矩阵
 fun initMatrix(matrix:Array<Array<Int>>){
     val centerX = matrix.size / 2
     val centerY = matrix.size / 2
